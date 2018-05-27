@@ -37,3 +37,7 @@ so what-next? for person 1 is (what-next? action1 action2 plan1)
 but what-next? for person 2 is (what-next? action2 action1 plan2)
 
 as consequence, only use data3 onward.
+
+
+27/05/2018: retro update
+
