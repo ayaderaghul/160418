@@ -40,24 +40,24 @@
              (generate-random-action-plan)))
 
 ;; classic automata
-(define (L) (automaton 0 (action 1 0)
+(define L (automaton 0 (action 1 0)
                      (list 
                       (list (action 1 0) (action 1 0) (action 1 0))
                       (list (action 1 0) (action 1 0) (action 1 0))
                       (list (action 1 0) (action 1 0) (action 1 0)))))
 
-(define (M) (automaton 0 (action 0 1)
+(define M (automaton 0 (action 0 1)
                      (list 
                       (list (action 0 1) (action 0 1) (action 0 1))
                       (list (action 0 1) (action 0 1) (action 0 1))
                       (list (action 0 1) (action 0 1) (action 0 1)))))
-(define (H) (automaton 0 (action 0 0)
+(define H (automaton 0 (action 0 0)
                      (list 
                       (list (action 0 0) (action 0 0) (action 0 0))
                       (list (action 0 0) (action 0 0) (action 0 0))
                       (list (action 0 0) (action 0 0) (action 0 0)))))
 
-(define (A) (automaton 0 (action 0 1)
+(define A (automaton 0 (action 0 1)
                      (list
                       (list (action 0 0) (action 0 1) (action 1 0))
                       (list (action 0 0) (action 0 1) (action 1 0))

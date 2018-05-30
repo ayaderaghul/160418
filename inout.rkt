@@ -13,6 +13,10 @@
 (define (input->numbers data)
   (map string->number (flatten data)))
 
+(define (input->coors data)
+(for/list ([i (in-list data)])
+(map string->number i)))
+
 (define (get-position n ls)
   (define l (length ls))
   (define ls2
