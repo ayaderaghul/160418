@@ -41,3 +41,13 @@ as consequence, only use data3 onward.
 
 27/05/2018: retro update
 
+
+name: 199pic -> 991pic
+
+benchmark w classic automata:  L M H A itself
+
+12/6/18: 
+
+plot.rkt invest.rkt report.rkt
+
+

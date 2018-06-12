@@ -25,6 +25,14 @@
       (equal? n j)))
   (length ls2))
 
+(define (get-posn-next-number ls)
+  (define l (length ls))
+  (define ls2
+    (for/list ([i (in-range 1 l)])
+      #:final (string->number (list-ref ls i))
+      (string->number (list-ref ls i))))
+  (length ls2))
+
 (define (population-at data cycle total)
   (define x (- total cycle))
   (define raw  (flatten data))
@@ -40,6 +48,15 @@
     (define c (rest b1))
     (define d (map string->number c))
     (resurrect d)))
+
+(define (resurrect-n automata)
+  (for/list ([i (in-list automata)])
+    (define z (first (string-split i "((" )))
+    (define a (string-split z ")" ))
+    (match-define (list b1 b2) (map string-split a))
+    (define d1 (map string->number b1))
+    (define d2 (string->number (second b2)))
+    (cons (resurrect d1) d2)))
 
 (define (resurrect-ethnic string)
   (define a (string-split string ")"))

@@ -1,7 +1,6 @@
 #lang racket
-(require "auto.rkt" "inout.rkt" "cons.rkt")
-(require plot racket/hash)
-(plot-new-window? #t)
+(require "auto.rkt" "inout.rkt" "cons.rkt" "plot.rkt")
+(require racket/hash)
 
 (provide (all-defined-out))
 
@@ -74,45 +73,6 @@
 (define (average lst)
   (exact->inexact (/ (sum lst) (length lst))))
 
-;; PLOT
-(define (population-mean->lines data)
-  (define coors
-    (for/list ([d (in-list data)]
-               [n (in-naturals)])
-      (list n d)))
-  (lines coors))
-
-(define (compound d r)
-  (foldl (lambda (n a) (+ a (expt d n))) 1 (build-list (- r 1) add1)))
-
-(define (plot-mean data delta rounds pic tit)
-  (define h (* 8 (compound delta rounds)))
-  (define m (* 5 (compound delta rounds)))
-  (define l (* 2 (compound delta rounds)))
-  (define h-line
-    (function (lambda (x) h) #:color "red"))
-  (define m-line
-    (function (lambda (x) m) #:color "green"))
-  (define l-line
-    (function (lambda (x) l) #:color "blue"))
-  (plot (list h-line m-line l-line
-              (population-mean->lines data))
-        #:y-min 0 #:y-max (+ 5 h) #:width 1200 #:height 800
-        #:out-file pic #:title tit))
-
-(define (plot-mean-p data delta rounds)
-  (define h (* 8 (compound delta rounds)))
-  (define m (* 5 (compound delta rounds)))
-  (define l (* 2 (compound delta rounds)))
-  (define h-line
-    (function (lambda (x) h) #:color "red"))
-  (define m-line
-    (function (lambda (x) m) #:color "green"))
-  (define l-line
-    (function (lambda (x) l) #:color "blue"))
-  (plot (list h-line m-line l-line
-              (population-mean->lines data))
-        #:y-min 0 #:y-max (+ 5 h) #:width 1200 #:height 800))
 
 ;; SCAN
 (define (scan population)
@@ -172,14 +132,6 @@
      (cons (average pp)
            (evolve-p (vector-map reset p3) (- cycles 1)
                    speed mutation))]))
-
-(define (gen-name location id name)
-  (format "~a~a~a~a"
-	(if (= location 1) OUTLABstr "")
-          DELTAstr (number->string id) name))
-
-(define (gen-pic-title)
-  (format "ID = ~s, N = ~s, s = ~s, r = ~s, d = ~s, m = ~s" SIM-ID N SPEED ROUNDS DELTA MUTATION))
 
 (define (main)
   (collect-garbage)
