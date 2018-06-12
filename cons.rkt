@@ -2,7 +2,7 @@
 (provide (all-defined-out))
 ;; CONFIGURATION
 (define SIM-ID 1)
-(define LOCATION 0) ;; 0 home 1 school lab
+(define LOCATION 1) ;; 0 home 1 school lab
 
 (define N 100)
 (define CYCLES 500) ;; careful, you change the cycles here
@@ -19,14 +19,14 @@
 (define OUTLABstr "/Users/linhchi.nguyen/Dropbox/160418-3/")
 
 (define (gen-out id)
-  (string-append "/Users/linhchi.nguyen/Dropbox/ndg-0418-3/"
+  (string-append "/Users/linhchi.nguyen/Dropbox/160418-3/"
                  DELTAstr (number->string id)))
 (define (gen-outs id)
-  (string-append "/Users/linhchi.nguyen/Dropbox/ndg-0418-3/"
+  (string-append "/Users/linhchi.nguyen/Dropbox/160418-3/"
                  DELTAstr (number->string id) "o"))
 ;(define OUTFILE (gen-out 1))
 (define (gen-in id)
-  (string-append "/Users/linhchi.nguyen/Dropbox/ndg-0418-3/"
+  (string-append "/Users/linhchi.nguyen/Dropbox/160418-3/"
                  DELTAstr (number->string id) "rank"))
 
 

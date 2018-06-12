@@ -82,12 +82,12 @@
     (take (drop a-list (* i n)) n)))
 
 (define (resurrect a-list) ;; without payoff
-  (define (resurrect-a a)
+  (define (resurrect-h a)
     (apply action a))
   (define pairs
     (decompose a-list 2))
   (define actions
-    (map resurrect-a pairs))
+    (map resurrect-h pairs))
   (define init
     (first actions))
   (define plan

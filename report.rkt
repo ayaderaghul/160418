@@ -20,7 +20,8 @@
       (fprintf out "\n")))
   (close-output-port out))
 
-(define (report2 input file-name files)
+
+(define (report2 input file-name)
   (define out (open-output-file file-name #:exists 'append))
   (define d (flatten input))
   (fprintf out "REPORT\n\n")
@@ -39,7 +40,7 @@
            (define l (length da))
            ;(print "after l")
            (fprintf out "~a, ~a: " c l)
-           (define res (invest-1 da files))
+           (define res (invest-1-p da))
            ;(print "after res")
            (fprintf out res)
            (fprintf out "\n")
@@ -110,7 +111,6 @@
 (define (main)
   (for ([i (in-list (list 1 2))])
     (define OUTFILE (gen-out i))
-    (define O (gen-outs i))
     (define INFILE (csvfile->list (gen-in i)))
-    (report2 INFILE OUTFILE O)
-    (plot-pays-f i)))
+    (report2 INFILE OUTFILE)
+    ))
