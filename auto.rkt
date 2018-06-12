@@ -230,6 +230,36 @@
           (automaton p1 init1 plan1)
           (automaton p2 init2 plan2)))
 
+;; return only result of payoffs
+(define (interact-r au1 au2)
+  (match-define (automaton pay1 init1 plan1) au1)
+  (match-define (automaton pay2 init2 plan2) au2)
+  (define (whats-next? action1 action2)
+    (cons
+     (what-next? action1 action2 plan1)
+     (what-next? action2 action1 plan2)))
+  (define-values (next1 next2 p1 p2 results)
+    (for/fold (
+               [current1 init1]
+               [current2 init2]
+               [payoff1 pay1]
+               [payoff2 pay2]
+               [round-results '()])
+              ([_ (in-list DELTAS)])
+      (match-define (list a1 a2)
+                    (list (randomise current1) (randomise current2)))
+      (match-define (cons n1 n2) (whats-next? a1 a2))
+      (match-define (cons pa1 pa2) (payoff a1 a2))
+      (values n1 n2
+              (+ payoff1 (* pa1 _))
+              (+ payoff2 (* pa2 _))
+              (cons (cons pa1 pa2) round-results)
+              )))
+  (cons
+   (round1 p1) (round1 p2)
+   ;; (automaton p1 init1 plan1)
+   ;; (automaton p2 init2 plan2)
+   ))
 
 ;; MUTATION
 (define (mutate-a action-scheme)
@@ -265,3 +295,111 @@
    [(<= r 6) (automaton pay initial (list l- (mutate-c (- r 4) m-) h-))]
    [(<= r 9) (automaton pay initial (list l- m- (mutate-c (- r 7) h-)))]))
 
+
+
+;;benchmark
+
+(define BENCHMARKS (list (L) (M) (H) (A)))
+
+(define (benchmark au)
+  (cons (interact-r au au)
+        (for/list ([i (in-list BENCHMARKS)])
+          (interact-r au i))))
+
+(define (interact-g au aus)
+  (for/list ([i (in-list aus)])
+    (interact-r au i)))
+
+(define (create-matrix au)
+  (define ls (cons au BENCHMARKS))
+  (for/list ([i (in-list ls)])
+    (interact-g i ls)))
+
+(define (create-matrix-l ls)
+  (for/list ([i (in-list ls)])
+    (interact-g i ls)))
+
+(define (reverse-matrix mat)
+  (define l (length mat))
+  (define (col x) (map (lambda (ls) (list-ref ls x)) mat))
+  (for/list ([i (in-range l)])
+    (col i)))
+
+(define (create-cell pair m-r m-c)
+  (match-define (cons p1 p2) pair)
+  (if (= p2 m-r)
+      (if (= p1 m-c)
+          (format "*~a ~a*" p1 p2)
+          (format " ~a ~a*" p1 p2))
+      (if (= p1 m-c)
+          (format "*~a ~a " p1 p2)
+          (format " ~a ~a " p1 p2))))
+
+(define (create-row pairs m-r m-c-s)
+  (for/list ([i (in-list pairs)]
+             [m-c (in-list m-c-s)])
+    (~a (create-cell i m-r m-c) #:min-width 15 #:align 'center)))
+  
+(define (print-matrix mat)
+  (define r (length mat))
+  (define c (length (first mat)))
+  (define ms 
+    (for/list ([row (in-list mat)])
+      (define ls (map cdr row))
+      (define m (apply max ls))
+      m))
+  (for/list ([i (in-list mat)]
+             [m-r (in-list ms)])
+    (apply string-append (create-row i m-r ms))))
+
+(define (interact-m au aus num)
+  (define res
+    (for/list ([i (in-list aus)]
+               [j (in-list num)])
+      (cons
+       (* (car (interact-r au i)) j)
+       (* (cdr (interact-r au i)) j))))
+  (cons
+   (round1 (/ (apply + (map car res)) 100))
+   (round1 (/ (apply + (map cdr res)) 100))))
+
+(define (interact-m-r aus num au)
+  (define res (interact-m au aus num))
+  (reverse-p res))
+
+(define (interact-m-itself aus num)
+  (define res-m-h
+    (for/list ([i (in-list aus)]
+               [j (in-list num)])
+      (* j (car (interact-m i aus num)))))
+  (define res-m
+    (round1 (/ (apply + res-m-h) 100)))
+  (cons res-m res-m))
+
+(define (benchmark-m mix)
+  (define aus (map car mix))
+  (define num (map cdr mix))
+  (list
+   (interact-m-itself aus num)
+   (interact-m-r aus num (L))
+   (interact-m-r aus num (M))
+   (interact-m-r aus num (H))
+   (interact-m-r aus num (A))
+;;   (interact-m-r aus num (T1))
+;;   (interact-m-r aus num (T2))))
+   ))
+
+(define (reverse-p pair)
+  (match-define (cons a b) pair)
+  (cons b a))
+  
+(define (create-matrix-m mix)
+  (define aus (map car mix))
+  (define num (map cdr mix))
+  (cons
+   (benchmark-m mix)
+   (for/list ([i (in-list BENCHMARKS)])
+     (cons (interact-m i aus num)
+           (interact-g i BENCHMARKS)))))
+  
+  
