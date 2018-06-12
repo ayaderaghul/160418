@@ -56,7 +56,7 @@
     (match-define (list b1 b2) (map string-split a))
     (define d1 (map string->number b1))
     (define d2 (string->number (second b2)))
-    (cons (resurrect (rest d1)) d2)))
+    (cons (resurrect d1) d2)))
 
 (define (resurrect-ethnic string)
   (define a (string-split string ")"))

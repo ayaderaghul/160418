@@ -1,0 +1,1 @@
+("6.12" ("6da83ebebb5b99f4b03a227d72077e43d64e8663" . "48beab25fdd1f8704abee1432fcfaca851d33611") (collects #"errortrace" #"errortrace-key.rkt") (collects #"plot" #"main.rkt") (collects #"plot" #"private" #"common" #"parameters.rkt") (collects #"plot" #"private" #"plot2d" #"line.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))
