@@ -411,12 +411,13 @@
   (define (with-au2 au2)
     (match-define (cons a1 a2) (interact-r au au2))
     a1)
-  (define (to-au2 au2)
-    (match-define (cons a1 a2) (interact-r au au2))
-    a2)
+
+(define (to-au2 au2)
+(match-define (cons a1 a2) (interact-r au au2))
+a2)
   (define thigh (to-au2 (H)))
   (define tmedium (to-au2 (M)))
   (define wlow (with-au2 (L)))
-  (define waccom (with-au2 (A)))
   (define taccom (to-au2 (A)))
-  (list itself wlow tmedium thigh waccom taccom)) 
+  (list itself wlow tmedium thigh taccom)) 
+

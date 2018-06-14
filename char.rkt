@@ -25,6 +25,7 @@
           #:fill-color color))
 
 (define (plot-character au au-file)
+
   (define xs '(0 1 2 3 4 5))
   ;(define au-map (gen-map xs au 'orange "automaton"))
   (define au-data (gen-data-points xs au 100 '()))
@@ -33,6 +34,7 @@
   (define medium-map (gen-map xs (M) 'green "medium"))
   (define high-map (gen-map xs (H) 'red "high"))
   (define acc-map (gen-map xs (A) 'blue "accommodator"))
+
   (plot (list au-points ;low-map acc-map
               medium-map high-map)
         #:y-min -5 #:y-max 1000 
