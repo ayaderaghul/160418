@@ -40,12 +40,6 @@
         #:y-min -5 #:y-max 1000 
         #:x-min 0 #:x-max 7
         #:x-label "match with: 0. itself    1. wL    2. tM    3. tH    4. wA 5. tA"
-=======
-  (plot (list au-points low-map medium-map high-map acc-map)
-        #:y-min -5 #:y-max 1000 
-        #:x-min 0 #:x-max 7
-        #:x-label "match with: 0. itself    1. L    2. M    3. H    4. A"
->>>>>>> ae63bbb13389a927247a1eaedef552105eccf81b
         #:y-label "payoff"
         #:legend-anchor 'top-right #:width 600
         #:out-file au-file))

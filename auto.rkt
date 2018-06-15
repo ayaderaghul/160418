@@ -62,6 +62,13 @@
                       (list (action 0 0) (action 0 1) (action 1 0))
                       (list (action 0 0) (action 0 1) (action 1 0))
                       (list (action 0 0) (action 0 1) (action 1 0)))))
+(define (T) 
+  (automaton 0 
+             (action 0.1 0.0)
+             (list
+              (list (action 0.2 0.3) (action 0.0 0.0) (action 0.8 0.0))
+              (list (action 0.0 0.1) (action 0.0 1.0) (action 0.3 0.1))
+              (list (action 0.0 0.0) (action 0.0 0.0) (action 0.0 0.4)))))
 ;; flatten
 (define (flatten-automaton auto)
   (match-define (automaton pay init plan) auto)
@@ -299,7 +306,7 @@
 
 ;;benchmark
 
-(define BENCHMARKS (list (L) (M) (H) (A)))
+(define BENCHMARKS (list (L) (M) (H) (A) (T)))
 
 (define (benchmark au)
   (cons (interact-r au au)
@@ -385,7 +392,7 @@
    (interact-m-r aus num (M))
    (interact-m-r aus num (H))
    (interact-m-r aus num (A))
-;;   (interact-m-r aus num (T1))
+   (interact-m-r aus num (T))
 ;;   (interact-m-r aus num (T2))))
    ))
 
@@ -411,12 +418,13 @@
   (define (with-au2 au2)
     (match-define (cons a1 a2) (interact-r au au2))
     a1)
-  (define (to-au2 au2)
-    (match-define (cons a1 a2) (interact-r au au2))
-    a2)
+
+(define (to-au2 au2)
+(match-define (cons a1 a2) (interact-r au au2))
+a2)
   (define thigh (to-au2 (H)))
   (define tmedium (to-au2 (M)))
   (define wlow (with-au2 (L)))
-  (define waccom (with-au2 (A)))
   (define taccom (to-au2 (A)))
-  (list itself wlow tmedium thigh waccom taccom)) 
+  (list itself wlow tmedium thigh taccom)) 
+

@@ -8,6 +8,3 @@
 (define dat2 (resurrect-n da))
 (define a (first dat))
 
-(plot-character a "a.png")
-
-
