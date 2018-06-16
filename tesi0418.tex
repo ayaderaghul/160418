@@ -2332,36 +2332,48 @@ always-high &  168.7 42.2  &  *794.7 198.7*   &    0 0     &       0 0  &     *7
 flexible &  196.7 786.7*  & 791.7 198.7  & *496.7 496.7 &   196.7 786.7*&   496.7 496.7\\
   
 \end{tabular}
-\caption{ Tough strategy at 541900.}
+\caption{ Tough strategy at 541900. This is the one that stabilises the almost-equitable norm after 500000 cycles.}
 \end{table}
 
+After that, for a period of time, the state fluctuates between stable and unstable because the strategy fluctuates between giving always-medium nothing and giving always-medium more points than it should do. This destabilising mutation happens at the initial action scheme. The automaton starts out playing Medium at probability 0.8. And once it is absorbed into the state of both playing M: (M,M) it stays there with absolute commitment. The mutations in this kind of model happens faster than the one using the finite state machine. \\
 
+Anyway, here we are witnessing a special structure inside an automaton: an absorbing state of (M,M) and an action scheme of playing High absolutely after the outcome of (H,M) or after (H,H). This is the mechanism to distinguish between itself and an always-medium. If initially it plays High and the other keeps playing Medium rigidly, it would continue to play High rigidly. This never ends the payoff sequence of zeros for both sides hence it is able to repel always-medium completely. But with itself, after a few rounds of probing, it would be able to be absorbed into the state of playing (M,M) forever.\\
 
+However, another thing matters with this plan: the initial action scheme. For example, with an initial action scheme that is aggressive: (0.1 0.2) (i.e. playing High with probability 0.7 in the first rounnd) the plan works very well. On the other hand, with a fairly square initial action scheme, say, (0 0.5) (i.e. in the first round, toss a coin between Medium and High): if the automaton plays Medium in the first round, it would be immediately absorbed into the state of (M,M) with always-medium forever and it would gives always-medium maximum points of the fully equitable share. This would obviously destabilise itself because with itself, it spends some time probing and retaliating.\\
 
+The situation remains the same until the end of the simulation.\\
   
+\subsubsection{Simulation 1 b}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.35]{/home/chi/Downloads/160418-3/992pic.png}
+\caption{Simulation 1 continued: $\delta$ = 0.99.}
+\end{figure}  
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+I suspect that the situation is the same: one tough automaton that has the contingency to distinguish between itself and always-medium. It seems that the compromised strategy never makes it. Because it takes two factors: first, the initial scheme is Low and second the reaction scheme after a (L,H) is also submissive. However, reaction scheme toward a hostile move is hostile in general so when the initial scheme is lowly, the automaton always comes back aggressively. And when the reaction scheme after a (L,H) is lowly, it does not have a way to enter that state, and even if it does, the reaction scheme is probabilistic, hence it would find a way out.\\
+
+The stabilising of the chaotic mixture (between aggressor and submissive one) is harder to achieve in this stochastic setting. It is so much harder to pinpoint down the compromised strategy long enough to collapse the equitable norm. The local maximum of a tough automaton, hence becomes harder to escape. It is easier to reach and harder to escape. This is why we almost never see the fully equitable share norm in the simulation. We also never see a fully chaotic collapse. As I draw theoretically in a previous chapter, the basin of attraction of a tough strategy in the repeated game is simply too large to fail. Adding to that, the basin of attraction of a perfectly equitable one and of the chaotic mixture is too small and not even fully stable (the equilibrium segment of the always-medium has an open end).\\
+
+
+\subsubsection{Simulation 2}
+
+When the population reaches the level of payoff that is equal to the fully equitable norm, in a rare case, it could be due to the fact that the automaton alternate between L and H. The action scheme after a (L,H) would be to play H absolutely (0 0) and the action scheme after a (H,L) would be to play L absolutely (1 0). This could be reached by mutation. However the initial scheme is also very important to be able to lead the automaton down that coordinated road. The initial plan cannot be certain because that would make it impossible to coordinate because the strategy would be matched with itself. In that case, it goes High and Low together and creates disaster.
+
+\begin{figure}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/991pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/992pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/993pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/994pic.png}
+
+\caption{One typical run: $\delta$ = 0.99}
+\end{figure}
 
 
 
+\subsubsection{Simulation 3}
 
-
-
-
-
-
-
-With the Markov chain inside the strategy's structure, the equilibria becomes more stable. So if the population state is close to an inferior state, it ends up being there quite some time. But once it gets into a good state, it also stays there for long.
-
+I report here another simulation run with the same setting.
 
 \begin{figure}
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/1pic.png}
@@ -2370,71 +2382,80 @@ With the Markov chain inside the strategy's structure, the equilibria becomes mo
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/4pic.png}
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/5pic.png}
 
-\caption{One typical run: $\delta$ = 0.99. a b c d e}
+\caption{One typical run: $\delta$ = 0.99.}
 \end{figure}
+
+\subsection{$\delta = 0.95$}
+\subsubsection{Simulation 4}
+
+\begin{figure}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/951pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/952pic.png}
+
+\caption{One typical run: $\delta$ = 0.95}
+\end{figure}
+\subsection{$\delta = 0.9$}
+\subsubsection{Simulation 5}
 
 
 \begin{figure}
-\includegraphics[scale=0.2]{/home/chi/Downloads/160418/991pic.png}
-\includegraphics[scale=0.2]{/home/chi/Downloads/160418/992pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/901pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/902pic.png}
 
-It is so much harder to reach the maximum payoff. Even in that case, the strategy is to alternate between High and Low perfectly. Interesting.
-
-
-\caption{One typical run: $\delta$ = 0.99}
+\caption{One typical run: $\delta$ = 0.9}
 \end{figure}
 
+\section{Individuals with middle range patience}
+\subsection{$\delta = 0.8$}
+\subsubsection{Simulation 6}
 
-In Figure 9.1 a b c, the population mean is very low. It is at the level of low payoff sequence (i.e. 2 2 2 2 2 2 2 ...). But it seems that the population stays trapped in this state for a very long time. So whatever it is, it is stable.
-
-Figure 9.1 a, cycle 22000, the population is full of the this automaton:
-
-\begin{verbatim}
-(action 0.8 0.2)
- (list
-  (list (action 0.3 0.4) (action 0.7 0.1) (action 0.3 0.0))
-  (list (action 0.2 0.4) (action 0.0 0.0) (action 0.6 0.1))
-  (list (action 0.0 0.6) (action 0.3 0.0) (action 0.2 0.0))))
-  
-Among itself: 172 / 499 = 34% -> not very equitable w itself
-
-Does it exploit Lows? 589 / 795 = 74% -> yes
-
--> This is an aggressive kind.
-\end{verbatim}
-
-The graph kit shows similar result.
 
 \begin{figure}
-\center
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/1-22000.png}
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/1-60000.png}
-\caption{Automaton}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/801pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/802pic.png}
+
+\caption{One typical run: $\delta$ = 0.8}
 \end{figure}
-
-Figure 9.1 d, where there is a jump from very low to rather ideal population mean, I take out 2 automata to represent these periods:
-
-\begin{figure}
-\center
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/4-20000.png}
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/4-30000.png}
-\caption{Automaton a b}
-\end{figure}
-
-Automaton a has the pattern of a High automaton. Automaton b has the pattern of an Flexible machine.
-
-
 
 \begin{figure}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/801pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/802pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/803pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/804pic.png}
+
+\subsubsection{Simulation 7}
 
 \caption{One typical run: $\delta$ = 0.80}
 \end{figure}
+\begin{figure}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/701pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/702pic.png}
+
+\subsection{$\delta = 0.7$}
+\subsubsection{Simulation 8}
+
+
+\caption{One typical run: $\delta$ = 0.7}
+\end{figure}
+
+\section{Myopic players}
+\subsection{$\delta = 0.5$}
+\subsubsection{Simulation 9}
+
+\begin{figure}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/501pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/502pic.png}
+
+\caption{One typical run: $\delta$ = 0.5}
+\end{figure}
+
+
 
 It is easier to reach the MM outcome because the vision is shorter, there is an aversion to wasting time and resources in the early rounds.
 
-\chapter{Simulation result: the Hawk Dove Game - tentative}
+\section{Conclusion}
+
+
 
 
 \chapter{Related work}
