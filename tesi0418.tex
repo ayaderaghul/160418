@@ -2332,36 +2332,130 @@ always-high &  168.7 42.2  &  *794.7 198.7*   &    0 0     &       0 0  &     *7
 flexible &  196.7 786.7*  & 791.7 198.7  & *496.7 496.7 &   196.7 786.7*&   496.7 496.7\\
   
 \end{tabular}
-\caption{ Tough strategy at 541900.}
+\caption{ Tough strategy at 541900. This is the one that stabilises the almost-equitable norm after 500000 cycles.}
 \end{table}
 
+After that, for a period of time, the state fluctuates between stable and unstable because the strategy fluctuates between giving always-medium nothing and giving always-medium more points than it should do. This destabilising mutation happens at the initial action scheme. The automaton starts out playing Medium at probability 0.8. And once it is absorbed into the state of both playing M: (M,M) it stays there with absolute commitment. The mutations in this kind of model happens faster than the one using the finite state machine. \\
 
+Anyway, here we are witnessing a special structure inside an automaton: an absorbing state of (M,M) and an action scheme of playing High absolutely after the outcome of (H,M) or after (H,H). This is the mechanism to distinguish between itself and an always-medium. If initially it plays High and the other keeps playing Medium rigidly, it would continue to play High rigidly. This never ends the payoff sequence of zeros for both sides hence it is able to repel always-medium completely. But with itself, after a few rounds of probing, it would be able to be absorbed into the state of playing (M,M) forever.\\
 
+However, another thing matters with this plan: the initial action scheme. For example, with an initial action scheme that is aggressive: (0.1 0.2) (i.e. playing High with probability 0.7 in the first rounnd) the plan works very well. On the other hand, with a fairly square initial action scheme, say, (0 0.5) (i.e. in the first round, toss a coin between Medium and High): if the automaton plays Medium in the first round, it would be immediately absorbed into the state of (M,M) with always-medium forever and it would gives always-medium maximum points of the fully equitable share. This would obviously destabilise itself because with itself, it spends some time probing and retaliating.\\
 
+The situation remains the same until the end of the simulation.\\
   
+\subsubsection{Simulation 1 b}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.35]{/home/chi/Downloads/160418-3/992pic.png}
+\caption{Simulation 1 continued: $\delta$ = 0.99.}
+\end{figure}  
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+I suspect that the situation is the same: one tough automaton that has the contingency to distinguish between itself and always-medium. It seems that the compromised strategy never makes it. Because it takes two factors: first, the initial scheme is Low and second the reaction scheme after a (L,H) is also submissive. However, reaction scheme toward a hostile move is hostile in general so when the initial scheme is lowly, the automaton always comes back aggressively. And when the reaction scheme after a (L,H) is lowly, it does not have a way to enter that state, and even if it does, the reaction scheme is probabilistic, hence it would find a way out.\\
+
+The stabilising of the chaotic mixture (between aggressor and submissive one) is harder to achieve in this stochastic setting. It is so much harder to pinpoint down the compromised strategy long enough to collapse the equitable norm. The local maximum of a tough automaton, hence becomes harder to escape. It is easier to reach and harder to escape. This is why we almost never see the fully equitable share norm in the simulation. We also never see a fully chaotic collapse. As I draw theoretically in a previous chapter, the basin of attraction of a tough strategy in the repeated game is simply too large to fail. Adding to that, the basin of attraction of a perfectly equitable one and of the chaotic mixture is too small and not even fully stable (the equilibrium segment of the always-medium has an open end).\\
+
+
+\subsubsection{Simulation 2}
+
+When the population reaches the level of payoff that is equal to the fully equitable norm, in a rare case, it could be due to the fact that the automaton alternate between L and H. The action scheme after a (L,H) would be to play H absolutely (0 0) and the action scheme after a (H,L) would be to play L absolutely (1 0). This could be reached by mutation. However the initial scheme is also very important to be able to lead the automaton down that coordinated road. The initial plan cannot be certain because that would make it impossible to coordinate because the strategy would be matched with itself. In that case, it goes High and Low together and creates disaster.
+
+\begin{figure}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/991pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/992pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/993pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/994pic.png}
+
+\caption{One typical run: $\delta$ = 0.99}
+\end{figure}
+
+In Figure a, from very early the situation is already stable. The population payoff average is very low, though because the automaton seems to alternate resulting in the payoff sequence of 2 0 0 5 8 8 2 2 8 0 0... For example, at cycle 1400, here is the automaton:
+
+\begin{verbatim}
+(action 0.2 0.1)
+ (list
+  (list (action 0.2 0.0) (action 0.1 0.1) (action 0.4 0.0))
+  (list (action 0.5 0.3) (action 0.8 0.1) (action 0.4 0.1))
+  (list (action 0.7 0.1) (action 0.7 0.2) (action 0.1 0.8))))
+\end{verbatim}
+
+This one starts out to be aggressive (the probability to play High is 0.7). After a (H,H) the probability to play Medium is 0.8. After a (M,M) the probability to play Low is 0.8. After a (L,L) the probability to go High together is 0.8. Because of the probabilistic nature, sometimes the outcome is (L,H), after a LH, the action scheme is (0.4 0) which means that they probably go to (H,L). Hence the resulting payoff sequence of alternating payoffs. This action plan is stable though because it gives less points to other automata than it gives to itself.\\
+
+After a while, the alternating scheme refines to be so much better. They coordinate smoother and there are less 0s in their payoff sequence. Hence the population payoff average raises. For example, at 21300:
+
+\begin{verbatim}
+(action 0.2 0.1)
+ (list
+  (list (action 0.2 0.0) (action 0.1 0.1) (action 0.0 0.0))
+  (list (action 0.5 0.3) (action 0.7 0.1) (action 0.4 0.1))
+  (list (action 0.7 0.1) (action 0.7 0.2) (action 0.1 0.8))))
+\end{verbatim}
+
+This one starts to play High with probability 0.7. After a HH, it plays Medium with probability 0.8. After a MM it plays Low with probability 0.7. After a LL it plays High with probability 0.8. The probability after LH has changes to (0 0) which means that after a LH it plays High with probability 1. After an HL, it plays Low with probability 0.7. This action plan results in a payoff sequence of 0 5 2 0 5 8 0 0...8 2 8 2 8 2...\\
+
+The action plan is refined further and the payoff sequence is smoother. For example, at 107000, 
+\begin{verbatim}
+(action 0.0 0.0)
+ (list
+  (list (action 0.4 0.0) (action 0.1 0.5) (action 0.0 0.0))
+  (list (action 0.5 0.4) (action 0.2 0.6) (action 0.4 0.0))
+  (list (action 0.8 0.2) (action 0.3 0.3) (action 0.0 1.0))))
+\end{verbatim}
+
+This one starts out to play High with certainty. After HH it plays Medium with certainty. After MM it plays Medium with probability 0.6. If it manages to enter a state of alternating between H and L, it seems to stay there. Because after a LH it plays High with certainty and after a HL it plays Low with probability 0.8. This is a mixture of High and Low inside a single scheme. This interesting feature is possible because of the probabilistic nature of the strategy. The same ex ante action plan can land on different actions ex post. And evolution cultivates an action plan that has a path leading to alternating sequence of 8 and 2. The initial phase before the alternating is required though, and it is not efficient (though it has become better) resulting in the payoff sequence of 0 5 0 5 0 8 2 0 8 2 8 2 ... This is a remarkable feature that evolved out of chaos in my opinion.\\
+
+Another tweak to this could be that it starts out with the action scheme of (0.8 0) which means that it either play Low with probability 0.8 or play High with probability 0.2. After a LL, it flips a coin  to either play Low or High (the action scheme is 0.4 0). This does not introduce Medium into the sequence. After a LH it plays High with probability 1. After a HL it plays Low with probability 0.8. After a HH, it plays Medium with probability 1 and after MM it has the action scheme of (0.2 0.6). This makes the payoff sequence better and if lucky the resulting sequence is 2 2 8 2 8 2 8 2...0... with the 0 introduced so much later into the game. This, of course, matter because the later the 0 the better. \\
+
+\begin{verbatim}
+(action 0.8 0.0)
+ (list
+  (list (action 0.4 0.0) (action 0.3 0.5) (action 0.0 0.0))
+  (list (action 0.5 0.4) (action 0.2 0.6) (action 0.8 0.0))
+  (list (action 0.8 0.2) (action 0.3 0.2) (action 0.0 1.0))))
+\end{verbatim}
+
+At 310300, the initial action scheme is to play Low with probability 1:
+
+\begin{verbatim}
+(action 0.1 0.0)
+ (list
+  (list (action 0.3 0.5) (action 0.3 0.4) (action 0.0 0.0))
+  (list (action 0.2 0.6) (action 0.4 0.2) (action 1.0 0.0))
+  (list (action 0.8 0.2) (action 0.0 1.0) (action 0.0 1.0))))
+
+\end{verbatim}
+After a LL, the probability to play Medium is 0.5. After a MM, the probability to continue to play Medium is only 0.2 but the probability to play High or Low is equally 0.4. This action scheme encourages a start of alternating sequence between 8 and 2. And then, to help the matter, after a LH, the probability to play H is 1. After a HL, the probability to play Low is 0.8. After a MH and both getting zero, the plan is to retreat to play Low with certainty. After an HM, the plan is to retreat to play Medium with certainty. Hence after an outcome of MH the two automata (executing the same action plan) can coordinate an LM smoothly giving both points rather than 0.\\
+
+In Figure b, I continue the simulation but resetting the cycle number back to 0. At cycle 100000, the automata engage in a long sequence of 0 5 0 5... (alternating between H and M) before settling down into the pattern of alternating between H and L. The payoff sequence is 0 5 0 5 0 5...8 2 8 2...\\
+
+\begin{verbatim}
+(action 0.0 0.8)
+ (list
+  (list (action 0.2 0.4) (action 0.5 0.3) (action 0.0 0.0))
+  (list (action 0.2 0.0) (action 0.2 0.0) (action 0.1 0.0))
+  (list (action 0.8 0.2) (action 0.0 0.1) (action 0.0 1.0))))
+\end{verbatim}
 
 
 
+At 331800:
+\begin{verbatim}
+(action 0.5 0.4)
+ (list
+  (list (action 0.0 0.3) (action 0.2 0.3) (action 0.0 0.0))
+  (list (action 0.0 0.9) (action 0.2 0.0) (action 0.1 0.3))
+  (list (action 1.0 0.0) (action 0.0 0.8) (action 0.0 1.0))))
+\end{verbatim}
+
+After a LH, the probability to play High is 1 and after an HL, the probability to play L is 1. With this action plan, if the automata manages to get into the flow, it stays in the alternating sequence of 8 and 2 absolutely. Hence you can see the sudden raise to almost the best possible population payoff average. This population payoff average is similar to the one of perfectly equitable share, however the mechanism is completely different. It is a sequence of alternating between 8 and 2 instead of a sequence of 5s. Other action schemes in this strategy also helps to enter the zone easier: after a LL, the probability to play High is 0.7, after a HH, the probability to play Medium is 1, after a MM the probability to play High is 0.8 which leaves room for one automaton to take the path of playing High and the other to play Low. Once they are absorbed into the sequence, it is inescapable.\\
+
+I suspect that the situation stays like this till the end of the simulation (including figure c and d). This one is very hard to beat and it is very hard to lead to the collapse of a chaotic mixture. It is a mixture but it is actually a well coordinated mixture instead of creating chaos.\\
 
 
 
+\subsubsection{Simulation 3}
 
-
-
-
-With the Markov chain inside the strategy's structure, the equilibria becomes more stable. So if the population state is close to an inferior state, it ends up being there quite some time. But once it gets into a good state, it also stays there for long.
-
+I report here another simulation run with the same setting.
 
 \begin{figure}
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/1pic.png}
@@ -2370,71 +2464,145 @@ With the Markov chain inside the strategy's structure, the equilibria becomes mo
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/4pic.png}
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/5pic.png}
 
-\caption{One typical run: $\delta$ = 0.99. a b c d e}
+\caption{One typical run: $\delta$ = 0.99.}
 \end{figure}
 
+\subsection{$\delta = 0.95$}
+\subsubsection{Simulation 4}
 
 \begin{figure}
-\includegraphics[scale=0.2]{/home/chi/Downloads/160418/991pic.png}
-\includegraphics[scale=0.2]{/home/chi/Downloads/160418/992pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/951pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/952pic.png}
 
-It is so much harder to reach the maximum payoff. Even in that case, the strategy is to alternate between High and Low perfectly. Interesting.
-
-
-\caption{One typical run: $\delta$ = 0.99}
+\caption{One typical run: $\delta$ = 0.95}
 \end{figure}
-
-
-In Figure 9.1 a b c, the population mean is very low. It is at the level of low payoff sequence (i.e. 2 2 2 2 2 2 2 ...). But it seems that the population stays trapped in this state for a very long time. So whatever it is, it is stable.
-
-Figure 9.1 a, cycle 22000, the population is full of the this automaton:
-
+Figure a, at 205400, the strategy stabilises with similar mechanism: they alternate between 8 and 2 but with a lot of 0s in the payoff sequence. At 401700 they coordinate smoother hence the population payoff average raises. However, the strategy at this point is giving always-medium a lot of points. Hence it is on the edge of being destabilised. At 601700, the compromised scheme toward always-medium ceases. The automaton has evolved the action scheme that would generate the definitive alternating sequence of 8 and 2:
 \begin{verbatim}
-(action 0.8 0.2)
+(action 0.4 0.4)
  (list
-  (list (action 0.3 0.4) (action 0.7 0.1) (action 0.3 0.0))
-  (list (action 0.2 0.4) (action 0.0 0.0) (action 0.6 0.1))
-  (list (action 0.0 0.6) (action 0.3 0.0) (action 0.2 0.0))))
-  
-Among itself: 172 / 499 = 34% -> not very equitable w itself
-
-Does it exploit Lows? 589 / 795 = 74% -> yes
-
--> This is an aggressive kind.
+  (list (action 0.1 0.3) (action 0.1 0.9) (action 0.0 0.0))
+  (list (action 0.4 0.3) (action 0.2 0.0) (action 0.9 0.1))
+  (list (action 1.0 0.0) (action 0.6 0.0) (action 0.3 0.1))))
 \end{verbatim}
 
-The graph kit shows similar result.
+We can see that after a LH, the probability to play H is 1 and after HL the probability to play Low is 1.  Of course initially they cannot act with determination, they have to figure out randomly until they hit the alternating pattern, hence initially it has to be stochastic. The plan definitely works because we see that the population payoff average has reached the best possible. I suspect it remains like this till the end.\\
+
+
+\subsection{$\delta = 0.9$}
+\subsubsection{Simulation 5}
+
 
 \begin{figure}
-\center
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/1-22000.png}
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/1-60000.png}
-\caption{Automaton}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/901pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/902pic.png}
+
+\caption{One typical run: $\delta$ = 0.9}
 \end{figure}
 
-Figure 9.1 d, where there is a jump from very low to rather ideal population mean, I take out 2 automata to represent these periods:
+In this simulation, the tough strategy is back to stabilise the best possible outcome (the payoff sequence of 0 0 5 5 5...) we can ever hope for in a stochastic environment.\\
+
+At 200000, 
+\begin{verbatim}
+(action 0.0 0.1)
+ (list
+  (list (action 0.3 0.4) (action 0.2 0.5) (action 0.7 0.2))
+  (list (action 0.2 0.3) (action 0.0 1.0) (action 0.2 0.0))
+  (list (action 0.2 0.0) (action 0.2 0.3) (action 0.0 0.9))))
+\end{verbatim}
+
+Here it starts to play High with probability 0.9. After a HH the probability to play M is 0.9. After a MM, the probability to play Medium is 1. Medium is an absorbing state. They just need an initial period to figure it out. At 300000, the mechanism is fine tuned:
+
+\begin{verbatim}
+ (action 0.0 0.0)
+ (list
+  (list (action 0.5 0.5) (action 0.5 0.2) (action 0.4 0.2))
+  (list (action 0.1 0.3) (action 0.0 1.0) (action 0.2 0.6))
+  (list (action 0.7 0.2) (action 0.7 0.3) (action 0.0 0.9))))
+\end{verbatim}
+
+The initial action scheme is to play High with probability 1 and after a HH to play Medium with probability 0.9, after a MM, the commitment to play Medium is absolute. Why do they play High in the first round? This is to repel always-medium. If it plays Medium in the first round, it would immediately be absorbed into the state of playing Medium, this would give always-medium the absolute payoff hence destabilising itself. This one also does not retreat to play Low after a HH, because if it retreats to play Low, it would give always-high a lot of points. It does not. It is a tough strategy.\\
+
+At 400000 the mechanism is fine tuned further:
+\begin{verbatim}
+(action 0.0 0.0)
+ (list
+  (list (action 0.1 0.3) (action 0.8 0.0) (action 0.4 0.3))
+  (list (action 0.1 0.3) (action 0.0 1.0) (action 0.3 0.2))
+  (list (action 0.7 0.1) (action 0.7 0.3) (action 0.0 1.0))))
+\end{verbatim}
+
+Initially it plays High with certainty, after a HH, it plays Medium with certainty, after a MM it plays Medium with certainty. Nothing else matters. This is the most direct way to get absorbed into the MM state that can still repel always-medium and always-high. This is evolution at its finest.\\
+
+I suspect it stays like this till the end (including figure b).\\
+
+
+
+\section{Individuals with middle range patience}
+\subsection{$\delta = 0.8$}
+\subsubsection{Simulation 6}
+
 
 \begin{figure}
-\center
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/4-20000.png}
-\includegraphics[scale=0.3]{/media/FUN/ndg-m-0418/4-30000.png}
-\caption{Automaton a b}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/801pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/802pic.png}
+
+\caption{One typical run: $\delta$ = 0.8}
 \end{figure}
-
-Automaton a has the pattern of a High automaton. Automaton b has the pattern of an Flexible machine.
-
-
 
 \begin{figure}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/801pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/802pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/803pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418/804pic.png}
+
+\subsubsection{Simulation 7}
 
 \caption{One typical run: $\delta$ = 0.80}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/701pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/702pic.png}
+
+\subsection{$\delta = 0.7$}
+\subsubsection{Simulation 8}
+
+
+\caption{One typical run: $\delta$ = 0.7}
+\end{figure}
+
+At 900000, the always-medium finds it way:
+\begin{verbatim}
+(action 0.0 1.0)
+ (list
+  (list (action 0.1 0.3) (action 0.0 0.0) (action 0.6 0.4))
+  (list (action 0.0 0.9) (action 0.0 1.0) (action 0.0 0.9))
+  (list (action 0.3 0.0) (action 0.1 0.8) (action 0.5 0.5))))
+\end{verbatim}
+This one plays Medium initially with probability 1 and after MM, it commits absolutely to play Medium. Nothing else matters, it is an always-medium and the population average is the perfect one resulting from the perfectly equitable share.
+
+\section{Myopic players}
+\subsection{$\delta = 0.5$}
+\subsubsection{Simulation 9}
+
+\begin{figure}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/501pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/502pic.png}
+
+\caption{One typical run: $\delta$ = 0.5}
 \end{figure}
 
 It is easier to reach the MM outcome because the vision is shorter, there is an aversion to wasting time and resources in the early rounds.
 
-\chapter{Simulation result: the Hawk Dove Game - tentative}
+\section{Conclusion}
+
+With highly patient players, in a stochastic world, the fully equitable share is impossible. It is not even stable (its equilibrium set has an open end into the basin of attraction of the tough strategy). However, the population also does not see the chaotic mixture. With the markov chain in the strategy structure, there are two stable mechanisms to sustain the best possible outcome: a little less than ideal but still very high population payoff average.\\
+
+- One is the tough strategy in which automaton spends some initial rounds (can be just one) to play aggressive and then settle down to play Medium forever after. This show of strength initially is crucial because it is deviced to distinguish itself with always-medium and always-high. Among itself, it plays fair enough, with others, it repels completely. In this kind of structure, however, the probing can only happens initially (because after that it enters an absorbing state of playing Medium). In the finite state machine model, the probing period can happen later.\\
+
+- The other is to use the initial phase to figure out a way to enter an absorbing pattern of alternating between 8 and 2. The faster the better. I wonder if this kind of mechanism has equivalent in a finite state machine model.\\
+
+The third comment is that, as the patience level of the individuals homogeneously reduces, they inherently have an aversion to wasting time and resources in the initial rounds. This affects the result a lot because the probe and retaliation can only happen initially. If people are obsessed with the present and near future payoff, no one would be willing to waste time on limited war. The only rational outcome is to surrender to peace immediately.\\
+
 
 
 \chapter{Related work}
@@ -2484,41 +2652,22 @@ Stopping rules:
 
 The contests then are run in pair among the 5 types for many times in order to calculate the stable payoff of each strategy. The result is displayed in a matrix table. 
 
-mouse
-hawk
-bully
-retaliator
-Prober-retaliator
-Mouse
-29
-19.5
-19.5
-29
-17.2
-Hawk
-80
--19.5
-74.6
--18.1
--18.9
-Bully
-80
-4.9
-41.5
-11.9
-11.2
-Retaliator
-29
--22.3
-57.1
-29
-23.1
-Prober-retaliator
-56.7
--20.1
-59.4
-26.9
-21.9
+\begin{table}
+\center
+\begin{tabular}{l|ccccc}
+\textbf{}& Mouse & Hawk & Bully & Retaliator & Prober-retaliator \\
+\hline
+
+Mouse & 29 & 19.5 & 19.5 & 29 & 17.2 \\
+Hawk & 80 & -19.5 & 74.6 & -18.1 & -18.9 \\
+Bully & 80 &  4.9 & 41.5 & 11.9 & 11.2 \\
+Retaliator & 29 & -22.3 & 57.1 & 29 & 23.1 \\
+Prober-retaliator & 56.7 & -20.1 & 59.4 & 26.9 & 21.9 \\
+\end{tabular}
+\caption{Maynard Smith and Price's representative strategies.}
+\end{table}
+
+
 
 Hawk cannot be an ESS because in a population full of Hawk, Mouse and Bully always do better. Hence it would be easy for Mouse or Bully to invade the population. Mouse is also not an ESS. The retaliators can coexist and be ESS. \\
 
@@ -2664,30 +2813,20 @@ This paper uses similar premises but extend the model a bit by structuring the p
 
 
 \chapter{Conclusion}
+In the limited time, there would not be simulation on another very relevant game which is the hawk dove game. I believe that property right emergence is one of the few fundamental principles underlying this world. And it is very relevant to conflict and negotiation of conflict which is the theme of this thesis. Unfortunately, the details and intricacy of this game exploration are absent. Hence the whole picture I intend to paint misses a big part.\\
 
-\chapter*{Bibliography}
-Axelrod R., 2006. {\emph{The evolution of cooperation: Revised edition}}. New York: Basic Books.\\ 
-Binmore K., Samuelson L., Young P., 2003. Equilibrium Selection in bargaining models. {\emph{Games and Economic Behavior}}, 45, 296-328.\\ 
-Binmore K., Piccione M., Samuelson L., 1998. Evolutionary Stability in Alternating-Offers Bargaining Games. {\emph{Journal of Economic Theory}}, 80, 257-291.  \\
-Binmore K., Samuelson L., 1999. Evolutionary Drift and Equilibrium Selection. {\emph{Review of Economic Studies }}, 66, 363-393.
-Hilbe C., Nowak M. A., Sigmund K., 2013. Evolution of extortion in Iterated Prisoner's Dilemma games. {\emph{PNAS}}, 110, 6913-6918. \\
-Kreps D. M., 1990. {\emph{A course in microeconomic theory}}. Princeton University Press. \\
-Myerson, R. B., 1999. Nash Equilibrium and the History of Economics Theory. {\emph{Journal of Economic Literature}}, 37, 1067-1082. \\
-Maynard Smith, J., 1982. {\emph{Evolution and Theory of Games}}. Cambridge University Press. \\
-Myerson, R. B., 1991. {\emph{Game theory: Analysis of conflicts}}. Havard University Press. \\
-Nash Jr. J. F., 1950. The Bargaining Problem. {\emph{Econometrica}}, 18, 155-162. \\
-Nash, Jr. J. F., 1951. Noncooperative games. {\emph{Annals Math.}}, 54, 289-95. \\
-Nowak M., Sigmund K., 1993. A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game. {\emph{Nature}}, 364, 56-58. \\
-Press W. H., Dyson F. J., 2012. Iterated Prisoner's Dilemma contains strategies that dominate any evolutionary opponent. {\emph{PNAS}}, 109, 10409-10413. \\
- Roth, A. E. Bargaining Experiments. {\emph{In Handbook of Experimental Economics, edited by John Kagel and Alvin E. Roth}}, 253–348. Princeton University Press, 1995.\\
-Rubinstein A., 1982. Perfect equilibrium in a bargaining model. {\emph{Econometrica}}, 50, 97-109. \\
-Schelling, T. C., 1980. {\emph{The Strategy of Conflict}}. Havard University Press. 
-van Veelen M., Garcia J., Rand D. G., Nowak M. A., 2012. Direct reciprocity in structured populations. {\emph{Proceedings of the National Academy of Sciences}}, 109, 9929-9934. \\
-Vega-Redondo, F., 2003. {\emph{Economics and Theory of Games}}. Cambridge University Press. \\
-Weibul, J. W., 1995. {\emph{Evolutionary Game Theory}}. MIT Press. \\
-Young P., 1998. {\emph{Inidividual Strategy and Social Structure}}. Princeton University Press.\\ 
+Anyway, the conclusion so far, if we are playing the long game, then limited war is justified on a prior ground. It sustains a local maximum that cushions the collapse of the negotiation process on the bargaining table. However, it also prevents the reaching toward the perfect maximum point of simply being fair and square from the start. Stochastically speaking, it is even the only option that rules. After the period of probing and retaliation is over, then both parties can settle down into a sequence of playing Medium together or an alternating sequence of playing High and Low.\\
+
+This would not happen if individuals are impatient. The lower the willingness to wait, the higher the price to pay to test each other initially.\\
+
+The long game also has an effect on the prisoner's dilemma. The dilemma is actually solved on different degrees. Cooperation emerges at different levels, with different sustaining mechanisms.\\
+
+
 
 \begin{thebibliography}{}
+
+
+
 
 \bibitem{aumann} Aumann, R. J. 1987b. Game theory. In The new Palgrave dictionary of economics, edited by M. Milgate and P. Newman, 460 - 482.
 
@@ -2706,7 +2845,9 @@ editor, Morgan Kaufman Publishers, Inc., pp. 32-41.
 
 \bibitem{binmore1}Binmore, K., A. Rubinstein, and A. Wolinsky. 1986. The Nash bargaining solution in
 economic modelling. Rand Journal of Economics 17: 176 - 188.
+
 \bibitem{equisel} Binmore K., Samuelson L., Young P., Equilibrium Selection in bargaining models. {\emph{Games and Economic Behavior}}. 45, 296-328, 2003. 
+
 \bibitem{evolalter} Binmore K., Piccione M., Samuelson L., Evolutionary Stability in Alternating-Offers Bargaining Games. {\emph{Journal of Economic Theory}}. 80, 257-291, 1998. 
 
 \bibitem{drift} Binmore K., Samuelson L., Evolutionary Drift and Equilibrium Selection. {\emph{Review of Economic Studies}}. 66, 363-393, 1999. 
@@ -2714,6 +2855,8 @@ economic modelling. Rand Journal of Economics 17: 176 - 188.
 \bibitem{boyd} Boyd R., Lorberbaum J. P.: No pure strategy is evolutionarily stable in the repeated Prisoner's Dilemma game. \emph{Nature}, 327, 58-59 (1987)
 
 \bibitem{dawkins}Dawkins, R., 1983. Universal Darwinism. In: Bendall, D.S. (Ed.), Evolution from Molecules to Man. Cambridge University Press, Cambridge, pp. 403–425.
+
+\bibitem{hamilton} Hamilton W. D., 1967. Extraordinary Sex Ratios. Science 156: 477-488.
 
 \bibitem{har1} Harsanyi, John C. 1956. Approaches to the bargaining problem before and after the theory of games: A critical discussion of Zeuthen’s, Hicks’, and Nash’s theories. Econometrica 24: 144 - 157.
 \bibitem{har2} - 1963. A simplified bargaining model for the n-person cooperative game. International Economic Review 4: 194 - 220.
@@ -2724,11 +2867,13 @@ economic modelling. Rand Journal of Economics 17: 176 - 188.
 
 \bibitem{hilbe} Hilbe C., Nowak M. A., Sigmund K., Evolution of extortion in Iterated Prisoner's Dilemma games. {\emph{PNAS}}. 110, 6913-6918, 2013.
 
+\bibitem{imhof} Imhof LA, Fudenberg D, Nowak MA. 2005. Evolutionary cycles of cooperation and defection. PNAS 102: 10797-10800.
 
 \bibitem{kreps} Kreps D. M.. {\emph{A course in microeconomic theory}}. Princeton University Press, 1990. 
 
 \bibitem{lorb} Lorberbaum J.: No strategy is evolutionarily stable in the repeated Prisoner's Dilemma. \emph{J. theor. Biol}. 168, 117-130 (1994)
 
+\bibitem{maynard2} Maynard Smith, J.. What use is sex?. Journal Theoretical Biology 30: 319 - 335.
 
 \bibitem{maynard} Maynard Smith, J.. {\emph{Evolution and Theory of Games}}. Cambridge University Press, 1982. 
 
@@ -2744,6 +2889,11 @@ economic modelling. Rand Journal of Economics 17: 176 - 188.
 \bibitem{nashcoop} Nash, Jr. J. F., Two-person cooperative games. {\emph{Econometrica}}. 21: 128 - 140, 1953.
 
 \bibitem{nowak} Nowak M., Sigmund K., A strategy of win-stay, lose-shift that outperforms tit-for-tat in the Prisoner's Dilemma game. {\emph{Nature}}. 364, 56-58, 1993. 
+
+\bibitem{nowak2} Nowak MA, Sigmund K. 1992. Tit for tat in heterogeneous populations. Nature 355.
+\bibitem{nowak3} Nowak MA, May RM. 1992. Evolutionary games and spatial chaos. Nature 359.
+
+\bibitem{poza} Poza D, Galan JM, Santos JI, Paredes AL. An agent based model of the nash demand game in regular lattices. 2010.
 
 \bibitem{dyson} Press W. H., Dyson F. J., Iterated Prisoner's Dilemma contains strategies that dominate any evolutionary opponent. {\emph{PNAS}}. 109, 10409-10413, 2012. 
 

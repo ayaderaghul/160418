@@ -4,13 +4,11 @@
 
 (provide (all-defined-out))
 
-(define STEP 10000)
-
 (define (report d file-name)
   (define out (open-output-file file-name #:exists 'append))
   (fprintf out "REPORT\n")
   (for ([i (in-range 100)])
-    (define cycle (* i STEP))
+    (define cycle (* i 100000))
     (define da (population-at d cycle 1000000))
     (define l (length da))
     (fprintf out "Cycle: ~a, no: ~a\n" cycle l)
@@ -30,7 +28,7 @@
           [else
            (define x (string->number (first data)))
            ;(print "after x")
-           (define c (- 1000000 x))
+           (define c (- TOTAL x))
            ;(print "after start")
            (define end (get-posn-next-number data))
           (define da
@@ -59,7 +57,7 @@
           [else
             (define x (string->number (first data)))
             ;(print "after x")
-            (define c (- 1000000 x))
+            (define c (- TOTAL x))
             ;(print "after c")
             (define end (get-posn-next-number data))
             (define da
@@ -88,7 +86,7 @@
           [else
             (define x (string->number (first data)))
             ;(print "after x")
-            (define c (- 1000000 x))
+            (define c (- TOTAL x))
             ;(print "after c")
             (define end (get-posn-next-number data))
             (define da

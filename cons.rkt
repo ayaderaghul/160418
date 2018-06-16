@@ -9,7 +9,9 @@
 (define SPEED 10)
 
 (define ROUNDS 500) ;; not here
-(define DELTA .99)
+(define DELTA .7)
+
+(define TOTAL 1000000)
 
 (define DELTAstr (string-trim (number->string (* DELTA 100)) ".0"))
 (define MUTATION 2) ;; 3x3 game needs more mutation
