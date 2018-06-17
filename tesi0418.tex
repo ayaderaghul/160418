@@ -1432,27 +1432,11 @@ x& *438.9 438.9* &  491.9 198.7  &  244.2 428.4   & 64.1 256.4 &    159.1 331.1 
 \caption{From 166900 the window closes.}
 \end{table}
 
-
-
 \subsubsection{Simulation 2}
 
-I report here another run of same settings.
+I report here another run of the same settings, with brief study (Figure 7.11).
 
-\begin{figure}
-\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/1pic.png}
-\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/2pic.png}
-\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/3pic.png}
-\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/4pic.png}
-\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/5pic.png}
-\caption{One typical run: $\delta$ = 0.99.}
-\end{figure}
-
-
-\subsubsection{Simulation 3}
-
-I report here another run of the same settings, with brief study.
-
-\begin{figure}
+\begin{figure}[h!]
 
 \includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418/991pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418/992pic.png}
@@ -1518,8 +1502,21 @@ machine       & 505 &    488 & 0& 486 & 491 \\
 
 At 400000, the machine does pretty well among itself except for the first round, however it does pretty bad against the benchmark set. It does not cooperate with always-medium, does not exploit always-low, does not submit to always-high, does not exploit or resist Flexible machine.
 
+\subsubsection{Simulation 3}
+
+I report here another run of same settings.
+
+\begin{figure}[h!]
+\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/1pic.png}
+\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/2pic.png}
+\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/3pic.png}
+\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/4pic.png}
+\includegraphics[scale=0.15]{/media/FUN/ndg-0418/data99/5pic.png}
+\caption{One typical run: $\delta$ = 0.99.}
+\end{figure}
 
 \subsection{$\delta = 0.9$}
+
 In this section I reduce the patience factor of the individual. The result changes numerically but not qualitatively.
 
 \subsubsection{Simulation 4}
@@ -1649,16 +1646,6 @@ When I reduce the patience level of the individual further, the frequency of the
 
 \begin{figure}[h!]
 
-\includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418-3/801pic.png}
-\includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418-3/802pic.png}
-
-\caption{One typical run: $\delta$ = 0.8. Total 2 000 000 cycles.}
-\end{figure}
-
-
-\subsubsection{Simulation 6}
-\begin{figure}[h!]
-
 \includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418/801pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418/802pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418/803pic.png}
@@ -1687,6 +1674,15 @@ Flexible machine  &     &     &  & \\
 \caption{benchmark}
 \end{table}
 
+\subsubsection{Simulation 6}
+Figure 7.17 shows another run with the same setting. 
+
+\begin{figure}[h!]
+\includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418-3/801pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/ndg-0418-3/802pic.png}
+
+\caption{One typical run: $\delta$ = 0.8. Total 2 000 000 cycles.}
+\end{figure}
 
 
 
@@ -1696,8 +1692,9 @@ When the patience level of the individual homogeneously drops to 0.5, there is v
 \subsection{$\delta = 0.5$}
 
 \subsubsection{Simulation 7}
+Figure 7.18 shows the result of 1000000 cycles, however, there is no sign of a collapsing of the 50-50 division norm.
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[scale=0.3]{/home/chi/Downloads/ndg-0418-3/501pic.png}
 \caption{One typical run: $\delta$ = 0.5.}
@@ -1856,7 +1853,7 @@ p_L>1/4\\
 \end{cases}
 $\\
 
-We plot these systems of inequalities on Oxy with Ox being $p_L$, Oy being $p_M$ as in Figure 2.1a. The graph shows 3 regions of population states in which it's best to play Low, Medium and High. Figure 2.1b shows the replicator dynamics of the one-shot NDG.
+We plot these systems of inequalities on Oxy with Ox being $p_L$, Oy being $p_M$ as in Figure 7.20b. The graph shows 3 regions of population states in which it's best to play Low, Medium and High. Figure 2.1b shows the replicator dynamics of the one-shot NDG.
 
 \begin{figure}
 \includegraphics[scale=0.6]{/media/FUN/ndg-0418/rep3/rep.png}
@@ -1886,7 +1883,7 @@ Now I increase the patience of all individuals in the society homogeneously, say
 
 Here are the strategies I would use as representatives:
 
-\begin{figure}
+\begin{figure}[h!]
 \center
 \includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/L.png}
 \includegraphics[scale=0.3]{/media/FUN/ndg-0418/dot/Co.png}
@@ -1899,7 +1896,7 @@ Here are the strategies I would use as representatives:
 
 If I use the Compromised strategy, here is the payoff table of the repeated Nash Demand game:
 
-\begin{table}
+\begin{table}[h!]
 \center
 \begin{tabular}{l|ccccc}
 \textbf{rNDG}&Compromised& Always-medium & Always-high & Tough 2\\
@@ -1914,7 +1911,7 @@ Tough 2 & *786.7 196.7  &      0 0     &       0 0    &   *491.7 491.7*\\
 
 We can see from the matrix that always-medium and tough 2 form 2 pure equilibria with itself. Always-high and compromised form an asymmetrical equilibrium, which in the context of a one-population game, would be a mixed equilibrium because in one population, the stable strategy has to be best response to itself (which the mix strategy between always-high and compromised is).\\
 
-I use the graphical representation of payoffs for each strategy:
+I use the graphical representation of payoffs for each strategy in Figure 7.23 and 7.24.\\
 
 \begin{figure}[h!]
 \includegraphics[scale=0.3]{/home/chi/Google" "Drive/phd-tesi/2d.png}
@@ -1931,12 +1928,10 @@ If we look at the bird view sketch of the best response regions, we can see that
 
 Now if we look at the basin of attraction and the current that flows around the dynamics square, we would see that the current points to Tough strategy is big hence the way out would involves a lot of mistake against the current. This one is quite stable.\\
 
-The basin of attraction for the always-medium strategy is a line segment (the green one) and the current is pushing it from the flow of the Compromised region (the purple region), however, at the open end of the segment, the current leaves the shore and enters the attraction of the Tough strategy. This is the breach of the always-medium segment.\\
-
-If the population is making mistake, the always-medium has so much less stability to hold on.
+The basin of attraction for the always-medium strategy is a line segment (the green one) and the current is pushing it from the flow of the Compromised region (the purple region), however, at the open end of the segment, the current leaves the shore and enters the attraction of the Tough strategy. This is the breach of the always-medium segment. If the population is making mistake, the always-medium equilibrium line clearly has an open end that leads to the basin of attraction of another point. That would not be considered as stability.\\
 
 \subsection{Payoff space}
-Theoretically when we look at the payoff matrix again, the always-high is weakly dominated by the tough strategy and the always-medium is weakly dominated by the compromised strategy.
+Theoretically when we look at the payoff matrix again, the always-high is weakly dominated by the tough strategy and the always-medium is weakly dominated by the compromised strategy.\\
 \begin{table}
 \center
 \begin{tabular}{l|ccccc}
@@ -1949,7 +1944,7 @@ Always-medium &  496.7 & *496.7 &     0     &        0    \\
 \caption{Always-medium is weakly dominated by compromised, because: against compromised and always-medium, they fare the same, but against always-high and tough, compromised fare way better ($196.7 > 0$}
 \end{table}
 
-\begin{table}
+\begin{table}[h!]
 \center
 \begin{tabular}{l|ccccc}
 \textbf{rNDG}&Compromised& Always-medium & Always-high & Tough 2\\
@@ -1962,7 +1957,7 @@ Tough 2 & *786.7  &       0     &        0    & 491.7*\\
 
 In a stochastic environment, weakly dominated strategy is not to be trusted, if we eliminate them (with caution), the game becomes a prisoner's dilemma (but is generous because the punishment is less harsh) and the compromised strategy becomes a dominated strategy.
 
-\begin{table}
+\begin{table}[h!]
 \center
 \begin{tabular}{l|ccccc}
 \textbf{rNDG}&Compromised&  Tough 2\\
@@ -1973,7 +1968,7 @@ Tough 2 & *786.7 196.7  &       *491.7 491.7*\\
 \caption{After elimination of weakly dominated strategies, the game becomes a Prisoner's Dilemma game and Compromised becomes a dominated strategy. Equivalently, Tough becomes a dominant strategy.}
 \end{table}
 
-Here I take an example of a specific tough strategy, however, there is a range of toughness that one can be while still stable. Here is why: the stable mixture of always-high and compromised is what makes tough 2 become stable because it acts as a punishment point in the folk theorem. There can be many kind of tough strategies lying on the 45o line coming from origin because the strategy has to be symmetric. Also, I speculate that the lower it is than the equitable share, the bigger basin of attraction it has. This can be checked by analytical calculation which I do not have time to elaborate right now.
+Here I take an example of a specific tough strategy, however, there is a range of toughness that one can be while still stable. Here is why: the stable mixture of always-high and compromised is what makes tough 2 become stable because it acts as a punishment point in the folk theorem. There can be many kind of tough strategies lying on the 45o line coming from origin because the strategy has to be symmetric. Also, I speculate that the lower it is than the equitable share, the bigger basin of attraction it has. This can be checked by analytical calculation which I do not have time to elaborate right now.\\
 
 I would elaborate this point further by plotting the payoff space of the relevant games. The payoff space of the one shot NDG has 5 disparate points, with three pure Nash equilibria and one mix one. When the game is repeated, the payoff space is the convex hull of all these disparate points. However, not all of the space is stable as equilibria. The folk theorem, with the punishment point to be the mixture between always-high and compromised, would allow the stability of the shaded area on the graph. Any point in that would be stable because if one party does not follow the arrangement creating that payoff profile would be punished: the other would go back to playing the punishment point. Hence the 45o line coming through origin and passing into this shaded area would be the continuum of toughness available in the repeated nash demand game. It ranges from extremely harsh (the chaotic equilibrium) to perfectly equitable (the 50-50 division). The reason it is symmetric is because this is a game played inside one population, if we play two populations, certainly other asymmetric points of the shaded area would be stable.
 
@@ -1988,9 +1983,7 @@ I suggest further that the hawk dove game, because it has two asymmetric pure eq
 
 \section{Strategy implementation}
 
-To implement the markov chain for strategies in the iterated Prisoner's Dilemma is simple. However, it needs more structure to apply the same idea for the iterated Nash Demand Game.
-
-One difference is that this game has 3 possible actions in each scene: to choose L, M or H. Hence we have an action scheme in the presentation of a vector (qL, qM, 1 - qL - qM). This vector contains the propensity to do each action. For example:
+To implement the markov chain for strategies in the iterated Prisoner's Dilemma is simple. However, it needs more structure to apply the same idea for the iterated Nash Demand Game. One difference is that this game has 3 possible actions in each scene: to choose L, M or H. Hence we have an action scheme in the presentation of a vector (qL, qM, 1 - qL - qM). This vector contains the propensity to do each action. For example:
 
 \begin{verbatim}
 an action scheme (a vector): 0.5 0.5 0
@@ -2161,7 +2154,6 @@ On the x axis, position 0 is the payoff if that automaton matches with itself. P
 
 In the match with itself (position 0 on x axis), its performance is very close to the always-lows automaton but it is not that this automaton always claims Low. The final payoff can come from a sequence of 2 0 0 8 0 0 ... In the match with always-low, it does not exploit Lows but it acts like an always-medium. In the match with always-medium, it gives always-medium very little points. And it gives always-highs almost zero. In the match with the Flexible machine, its payoff is slightly higher than the flexible machine. Overall, this one is moderately aggressive.\\
 
-\section{Payoff calculation}
 
 \chapter{Simulation result: the repeated Nash Demand Game - Markov chain}
 
@@ -2360,7 +2352,7 @@ The stabilising of the chaotic mixture (between aggressor and submissive one) is
 
 When the population reaches the level of payoff that is equal to the fully equitable norm, in a rare case, it could be due to the fact that the automaton alternate between L and H. The action scheme after a (L,H) would be to play H absolutely (0 0) and the action scheme after a (H,L) would be to play L absolutely (1 0). This could be reached by mutation. However the initial scheme is also very important to be able to lead the automaton down that coordinated road. The initial plan cannot be certain because that would make it impossible to coordinate because the strategy would be matched with itself. In that case, it goes High and Low together and creates disaster.
 
-\begin{figure}
+\begin{figure}[h!]
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/991pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/992pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/993pic.png}
@@ -2455,9 +2447,9 @@ I suspect that the situation stays like this till the end of the simulation (inc
 
 \subsubsection{Simulation 3}
 
-I report here another simulation run with the same setting.
+I report in Figure 9.10 another simulation run with the same setting.
 
-\begin{figure}
+\begin{figure}[h!]
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/1pic.png}
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/2pic.png}
 \includegraphics[scale=0.2]{/media/FUN/ndg-m-0418/3pic.png}
@@ -2467,16 +2459,18 @@ I report here another simulation run with the same setting.
 \caption{One typical run: $\delta$ = 0.99.}
 \end{figure}
 
+\pagebreak
+
 \subsection{$\delta = 0.95$}
 \subsubsection{Simulation 4}
-
-\begin{figure}
+\begin{figure}[h!]
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/951pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/952pic.png}
 
 \caption{One typical run: $\delta$ = 0.95}
 \end{figure}
-Figure a, at 205400, the strategy stabilises with similar mechanism: they alternate between 8 and 2 but with a lot of 0s in the payoff sequence. At 401700 they coordinate smoother hence the population payoff average raises. However, the strategy at this point is giving always-medium a lot of points. Hence it is on the edge of being destabilised. At 601700, the compromised scheme toward always-medium ceases. The automaton has evolved the action scheme that would generate the definitive alternating sequence of 8 and 2:
+Figure 9.11 a, at 205400, the strategy stabilises with similar mechanism: they alternate between 8 and 2 but with a lot of 0s in the payoff sequence. At 401700 they coordinate smoother hence the population payoff average raises. However, the strategy at this point is giving always-medium a lot of points. Hence it is on the edge of being destabilised. At 601700, the compromised scheme toward always-medium ceases. The automaton has evolved the action scheme that would generate the definitive alternating sequence of 8 and 2:
+
 \begin{verbatim}
 (action 0.4 0.4)
  (list
@@ -2492,7 +2486,7 @@ We can see that after a LH, the probability to play H is 1 and after HL the prob
 \subsubsection{Simulation 5}
 
 
-\begin{figure}
+\begin{figure}[h!]
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/901pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/902pic.png}
 
@@ -2501,7 +2495,7 @@ We can see that after a LH, the probability to play H is 1 and after HL the prob
 
 In this simulation, the tough strategy is back to stabilise the best possible outcome (the payoff sequence of 0 0 5 5 5...) we can ever hope for in a stochastic environment.\\
 
-At 200000, 
+At 200000, there is this automaton:
 \begin{verbatim}
 (action 0.0 0.1)
  (list
@@ -2537,36 +2531,33 @@ I suspect it stays like this till the end (including figure b).\\
 
 
 
-\section{Individuals with middle range patience}
+\section{Individuals with moderate patience}
+
 \subsection{$\delta = 0.8$}
 \subsubsection{Simulation 6}
-
-
-\begin{figure}
+\begin{figure}[h!]
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/801pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/802pic.png}
-
 \caption{One typical run: $\delta$ = 0.8}
 \end{figure}
 
-\begin{figure}
+\pagebreak
+
+\subsubsection{Simulation 7}
+\begin{figure}[h!]
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/801pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/802pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/803pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418/804pic.png}
-
-\subsubsection{Simulation 7}
-
 \caption{One typical run: $\delta$ = 0.80}
 \end{figure}
-\begin{figure}
-\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/701pic.png}
-\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/702pic.png}
+\pagebreak
 
 \subsection{$\delta = 0.7$}
 \subsubsection{Simulation 8}
-
-
+\begin{figure}[h!]
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/701pic.png}
+\includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/702pic.png}
 \caption{One typical run: $\delta$ = 0.7}
 \end{figure}
 
@@ -2584,7 +2575,7 @@ This one plays Medium initially with probability 1 and after MM, it commits abso
 \subsection{$\delta = 0.5$}
 \subsubsection{Simulation 9}
 
-\begin{figure}
+\begin{figure}[h!]
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/501pic.png}
 \includegraphics[scale=0.2]{/home/chi/Downloads/160418-3/502pic.png}
 
@@ -2902,6 +2893,8 @@ economic modelling. Rand Journal of Economics 17: 176 - 188.
 \bibitem{fogel3}Fogel, D. B. (1993). Evolving behaviors in the iterated prisoner’s dilemma. Evolutionary Computation, 1 (1), pp 77-97.
 \bibitem{fogel4}Fogel, L., A. Owens and M. Walsh (1966). Artificial intelligence through simulated evolution. New York: John Wiley \& Sons.
 
+\bibitem{tirole} Fudenberg D, Tirole J. Game theory. MIT Press.
+
 \bibitem{roth} Roth, A. E, Bargaining Experiments. In: {\emph{Handbook of Experimental Economics}}, ed. John Kagel and Alvin E. Roth. Princeton University Press, 253-348, 1995. 
 \bibitem{rubin} Rubinstein A., Perfect equilibrium in a bargaining model. {\emph{Econometrica}}. 50, 97-109, 1982. 
 \bibitem{rubin2} Rubinstein, A., Z. Safra, and W. Thomson. 1992. On the interpretation of the Nash bargaining solution and its extension to non-expected utility preferences.
@@ -2910,7 +2903,10 @@ Economettica 60: 1171 - 1186.
 
 \bibitem{veelen} van Veelen M., Garcia J., Rand D. G., Nowak M. A., Direct reciprocity in structured populations. {\emph{Proceedings of the National Academy of Sciences}}. 109, 9929-9934, 2012. 
 
-\bibitem{vega} Vega-Redondo, F.. {\emph{Economics and Theory of Games}}. Cambridge University Press, 2003. 
+\bibitem{vega} Vega-Redondo, F.. {\emph{Economics and Theory of Games}}. Cambridge University Press, 2003.
+
+\bibitem{von} von Neumann J, Morgenstern O. Theory of Games and economics behavior. Princeton University Press.
+ 
 \bibitem{weibul} Weibul, J. W.. {\emph{Evolutionary Game Theory}}. MIT Press, 1995. 
 \bibitem{young} Young P.. {\emph{Inidividual Strategy and Social Structure}}. Princeton University Press, 1998.
 
